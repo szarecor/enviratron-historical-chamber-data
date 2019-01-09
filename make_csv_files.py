@@ -1,17 +1,16 @@
 """' This is a rough proof of concept script for parsing the historical Enviratron growth chamber state data
 that Percival Scientific stores in a MongoDb instance on the Enviratron intrastructure. """
 import os
-import datetime
+from datetime import datetime
 from dateutil.tz import tzoffset
-import pymongo
-from pymongo import MongoClient
+import csv
 from bson.objectid import ObjectId
 import arrow
-import csv
+import pymongo
 
 
 def get_mongo_connection(ip_addr, port=27017, collection=None):
-    client = MongoClient(ip_addr, port)
+    client = pymongo.MongoClient(ip_addr, port)
     db = client.intelluscloud
 
     if collection is not None:
@@ -26,10 +25,8 @@ if __name__ == "__main__":
     mongo_ip_address = os.getenv("ENVIRATRON_MONGODB_IP")
 
     if mongo_ip_address is None:
-
         print("Please set the env var ENVIRATRON_MONGODB_IP before proceeding")
         import sys
-
         sys.exit(-1)
 
     # Pulled from MongoDb intelluscloud.chamber collection:
@@ -72,11 +69,11 @@ if __name__ == "__main__":
 
     # Set the start and end datetimes for the query here:
     # Let's naively assume all datetimes are UTC+0:
-    start_datetime = datetime.datetime(
+    start_datetime = datetime(
         2019, 1, 1, 0, 0, 0, 0, tzinfo=tzoffset("UTC+0", 0)
     )
-    end_datetime = datetime.datetime(
-        2019, 1, 4, 23, 59, 0, 0, tzinfo=tzoffset("UTC+0", 0)
+    end_datetime = datetime(
+        2019, 1, 1, 23, 59, 0, 0, tzinfo=tzoffset("UTC+0", 0)
     )
 
     start_datetime_str = start_datetime.strftime("%Y%m%dT%H:%M")
@@ -93,7 +90,7 @@ if __name__ == "__main__":
         _chamber_id = int(chamber_name.split(" ")[1])
 
         with open(
-            f"./output/chamber_{_chamber_id}_observation_data_from_{start_datetime_str}_to_{end_datetime_str}.csv",
+            f"./sample_output/chamber_{_chamber_id}_observation_data_from_{start_datetime_str}_to_{end_datetime_str}.csv",
             "w",
         ) as write_handle:
 
