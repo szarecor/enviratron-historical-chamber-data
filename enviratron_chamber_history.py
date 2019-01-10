@@ -49,7 +49,16 @@ class EnviratronChamberHistoryParser:
     def _parse_mongo_chamberdata_record(
         self, chamberdata, resolution_in_minutes=1, end_datetime=None
     ):
-        """ Extracts the timepoint data wrapped in a chamberdata record """
+        """ Extracts the timepoint data wrapped in a chamberdata record
+
+        The chamber data (set points and observed/actual is logged with one-minute resolution.
+
+        The logged data is grouped in one-hour chunks wrapped in a single chamberdata instance.
+
+        In most cases, there will be 60 entries for each set point and observation data type within each
+        chamberdata instance. However, there are cases when the data gets sparse and there are < 60 entries.
+
+        """
 
         d = chamberdata
 
@@ -84,6 +93,7 @@ class EnviratronChamberHistoryParser:
         watering_set_points = watering_data.get("SetPoints")
         watering_actual = watering_data.get("Values")
 
+        # For what it's worth, the black formatter keeps adding the parentheses here:
         assert (
             watering_set_points is not None
         ), "Did not find watering (PV_5) set point data"
@@ -162,6 +172,8 @@ class EnviratronChamberHistoryParser:
         time_resolution_mins=1,
     ):
         """ Returns a list of the historical data for the given chamber and date range and time_resolutions (in minutes) """
+
+        # TODO: This is hacky, let's circle back and reconsider this:
         if time_resolution_mins > 60:
             raise RuntimeError(
                 "Time resolution must be less than or equal to 60 minutes"
