@@ -10,6 +10,9 @@ To run the example code (`example.py`), you will first need to set the ip addres
 
 Then, you can run `python example.py` or any of the other examples. See the definition of the `main()` function in `example.py` for available parameters.
 
+
+Sample output of the `EnviratronChamberHistoryParser.write_csv()` method is available in the `./sample_output/` directory.
+
 Basic usage example:
 ```python
 from datetime import datetime
