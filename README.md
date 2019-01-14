@@ -1,5 +1,7 @@
 # Enviratron Growth Chamber History Parser
 
+__The code in this repo is rough and in-progress__
+
 This project is for extracting historical environmental data for the growth chambers in the Enviratron project. 
 
 The Percival Scientific growth chambers log set point and observed values for temperature, relative humidity, CO2, soil moisture and lighting
