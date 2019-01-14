@@ -102,7 +102,7 @@ def test_parsing_with_end_datetime(history, sample_chamberdata_record):
     ), "The parsed data should have zero timepoints for one-minute resolution and the specified end_datetime!"
 
 
-def test_csv_writing(history):
+def test_csv_header(history):
     csv_obj = get_csv_obj(history)
 
     # Does the first row look like the expected header?:
