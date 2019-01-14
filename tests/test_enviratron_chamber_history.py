@@ -2,6 +2,9 @@ import os
 from datetime import datetime
 from dateutil.tz import tzoffset
 import sys
+from io import StringIO
+import arrow
+import csv
 import pytest
 
 sys.path.append(os.path.abspath(os.getcwd()))
@@ -10,7 +13,7 @@ from enviratron_chamber_history import EnviratronChamberHistoryParser
 
 @pytest.fixture(scope="module")
 def history():
-    ''' Fixture providing a EnviratronChamberHistoryParser instance '''
+    """ Fixture providing a EnviratronChamberHistoryParser instance """
     mongo_ip_address = os.getenv("ENVIRATRON_MONGODB_IP")
     history = EnviratronChamberHistoryParser(mongo_ip_address)
     return history
@@ -99,9 +102,76 @@ def test_parsing_with_end_datetime(history, sample_chamberdata_record):
     ), "The parsed data should have zero timepoints for one-minute resolution and the specified end_datetime!"
 
 
+def test_csv_writing(history):
+    csv_obj = get_csv_obj(history)
+
+    # Does the first row look like the expected header?:
+    assert csv_obj.__next__() == [
+        "chamber",
+        "record ID",
+        "datetime",
+        "temperature setpoint",
+        "temperature actual",
+        "rh setpoint",
+        "rh actual",
+        "watering setpoint",
+        "watering actual",
+    ], "Found wrong headers in written CSV"
+
+
+def test_csv_line_count(history):
+    csv_obj = get_csv_obj(history)
+    line_count = len([l for l in csv_obj])
+    assert (
+        line_count == 25
+    ), "There should be 24 data rows (plus a header row) in the CSV for 60 min resolution over twenty-four hours"
+
+
+def test_csv_datetime_range(history):
+    csv_obj = get_csv_obj(history)
+
+    end_datetime = arrow.now().shift(days=-1)
+    start_datetime = end_datetime.shift(days=-1)
+
+    # Skip the header row:
+    csv_obj.__next__()
+
+    for row in csv_obj:
+        row_datetime = arrow.get(row[2])
+        assert (
+            start_datetime < row_datetime < end_datetime
+        ), f"The following statement should be True: {start_datetime} < {row_datetime} < {end_datetime}"
+
+
+def get_csv_obj(history):
+    """ Returns a csv reader instance of chamberdata data
+    This is not a fixture b/c we want a new instance for each usage.
+    """
+
+    # Don't use now() for the end_datetime if you want predictable counts of timepoints,
+    # b/c it will give an incomplete dataset (mid hour and < 60 timepoints)
+    end_datetime = arrow.now().shift(days=-1)
+    start_datetime = end_datetime.shift(days=-1)
+
+    # Use StringIO for writing instead of an actual file:
+    write_handle = StringIO()
+
+    history.write_csv(
+        write_handle=write_handle,
+        chamber_int=1,
+        start_datetime=start_datetime.datetime,
+        end_datetime=end_datetime.datetime,
+        time_resolution_mins=60,
+    )
+
+    write_handle.seek(0)
+    csv_doc = csv.reader(write_handle)
+    return csv_doc
+
+
 @pytest.fixture(scope="module")
 def sample_chamberdata_record():
-    ''' Fixture providing an approximation of a chamberdata record from the Mongo DB: '''
+    """ Fixture providing an approximation of a chamberdata record from the Mongo DB: """
 
     return {
         "_id": "72e047c3d68d1f4ab7f83d97",
@@ -364,128 +434,128 @@ def sample_chamberdata_record():
             },
             "PV_3": {
                 "Values": [
-                    504000,
-                    502000,
-                    502000,
-                    502000,
-                    502000,
-                    502000,
-                    502000,
-                    500000,
-                    499000,
-                    499000,
-                    500000,
-                    500000,
-                    501000,
-                    499000,
-                    499000,
-                    500000,
-                    501000,
-                    502000,
-                    502000,
-                    502000,
-                    501000,
-                    498000,
-                    498000,
-                    499000,
-                    499000,
-                    501000,
-                    501000,
-                    500000,
-                    501000,
-                    499000,
-                    499000,
-                    499000,
-                    500000,
-                    501000,
-                    503000,
-                    500000,
-                    499000,
-                    499000,
-                    496000,
-                    499000,
-                    502000,
-                    502000,
-                    501000,
-                    501000,
-                    506000,
-                    503000,
-                    503000,
-                    501000,
-                    503000,
-                    501000,
-                    501000,
-                    504000,
-                    505000,
-                    501000,
-                    501000,
-                    501000,
-                    503000,
-                    506000,
-                    505000,
-                    503000,
+                    504_000,
+                    502_000,
+                    502_000,
+                    502_000,
+                    502_000,
+                    502_000,
+                    502_000,
+                    500_000,
+                    499_000,
+                    499_000,
+                    500_000,
+                    500_000,
+                    501_000,
+                    499_000,
+                    499_000,
+                    500_000,
+                    501_000,
+                    502_000,
+                    502_000,
+                    502_000,
+                    501_000,
+                    498_000,
+                    498_000,
+                    499_000,
+                    499_000,
+                    501_000,
+                    501_000,
+                    500_000,
+                    501_000,
+                    499_000,
+                    499_000,
+                    499_000,
+                    500_000,
+                    501_000,
+                    503_000,
+                    500_000,
+                    499_000,
+                    499_000,
+                    496_000,
+                    499_000,
+                    502_000,
+                    502_000,
+                    501_000,
+                    501_000,
+                    506_000,
+                    503_000,
+                    503_000,
+                    501_000,
+                    503_000,
+                    501_000,
+                    501_000,
+                    504_000,
+                    505_000,
+                    501_000,
+                    501_000,
+                    501_000,
+                    503_000,
+                    506_000,
+                    505_000,
+                    503_000,
                 ],
                 "SetPoints": [
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
-                    400000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
+                    400_000,
                 ],
             },
             "PV_4": {
