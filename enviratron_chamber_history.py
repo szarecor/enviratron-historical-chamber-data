@@ -61,7 +61,6 @@ class EnviratronChamberHistoryParser:
         """
 
         d = chamberdata
-
         return_data = []
 
         obs_count = int(d.get("Count"))
@@ -113,43 +112,30 @@ class EnviratronChamberHistoryParser:
 
             # Divide all values by 1000 to get a human-readable number
 
+            def get_value_or_none(collection, index):
+                ''' Simple helper to avoid IndexErrors when getting data from the lists.
+                This is necessary because the "obs_count" value from the chamberdata object is not always
+                correct. Alternatively, we could avoid the IndexErrors by simply using len() on the list.
+                '''
+                try:
+                    value = collection[index] / 1000.00
+                    return value
+                except IndexError:
+                    return None
+
             # Handle temperatures:
-            try:
-                temp_set_point = temps_set_points[i] / 1000.00
-            except IndexError:
-                temp_set_point = None
-
-            try:
-                temp_actual = temps_actual[i] / 1000.00
-            except IndexError:
-                temp_actual = None
-
+            temp_set_point = get_value_or_none(temps_set_points, i)
+            temp_actual = get_value_or_none(temps_actual, i)
             # Handle relative humidity:
-            try:
-                rh_set_point = rhs_set_points[i] / 1000.00
-            except IndexError:
-                rh_set_point = None
-
-            try:
-                rh_actual = rhs_actual[i] / 1000.00
-            except IndexError:
-                rh_actual = None
-
+            rh_set_point = get_value_or_none(rhs_set_points, i)
+            rh_actual = get_value_or_none(rhs_actual, i)
             # Soil moisture/watering:
-            try:
-                sm_set_point = watering_set_points[i] / 1000.00
-            except IndexError:
-                sm_set_point = None
-
-            try:
-                sm_actual = watering_actual[i] / 1000.00
-            except IndexError:
-                sm_actual = None
+            sm_set_point = get_value_or_none(watering_set_points, i)
+            sm_actual = get_value_or_none(watering_actual, i)
 
             tstamp_str = tstamp.format("YYYY-MM-DD HH:mm")
             return_data.append(
                 [
-                    # _chamber_id,
                     str(d.get("_id")),
                     tstamp_str,
                     temp_set_point,
