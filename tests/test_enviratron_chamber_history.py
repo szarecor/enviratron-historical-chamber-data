@@ -149,7 +149,10 @@ def get_csv_obj(history):
     """
 
     # Don't use now() for the end_datetime if you want predictable counts of timepoints,
-    # b/c it will give an incomplete dataset (mid hour and < 60 timepoints)
+    # b/c now() will contain the most recent chamberdata instance which is most likely incomplete due to the way
+    # Percival creates and populates the instances in the DB. The instance is created in the DB with a single time point
+    # and then a timepoint is added every minute until the chamberdata instance is complete (60 timepoints) and a new
+    # chamberdata instance is started.
     end_datetime = arrow.now().shift(days=-1)
     start_datetime = end_datetime.shift(days=-1)
 
@@ -167,6 +170,30 @@ def get_csv_obj(history):
     write_handle.seek(0)
     csv_doc = csv.reader(write_handle)
     return csv_doc
+
+
+def test_inaccurate_count_field(history, sample_chamberdata_record):
+    """ The chamberdata instances from the DB have been found to have "Count" fields that don't accurately reflect the
+    number of datapoints contained in the various child arrays.
+
+    We test that case here by creating a missing data scenario and feeding that data to the parsing method. """
+    bad_record = sample_chamberdata_record
+    bad_record["Inputs"]["PV_1"]["Values"] = sample_chamberdata_record["Inputs"][
+        "PV_1"
+    ]["Values"][:40]
+    partial_data = history._parse_mongo_chamberdata_record(bad_record)
+
+    # Test that known source data is preserved:
+    for row in partial_data[:40]:
+        assert (
+            row[3] is not None
+        ), "There should be output data when input data is NOT missing"
+
+    # Test that missing source data -> None in the output data
+    for row in partial_data[40:]:
+        assert (
+            row[3] is None
+        ), "There should be empty output data when input data is missing"
 
 
 @pytest.fixture(scope="module")
