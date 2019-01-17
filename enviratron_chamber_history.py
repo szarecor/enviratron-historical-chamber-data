@@ -1,9 +1,26 @@
 """' This file is for parsing the historical Enviratron growth chamber state data
 that Percival Scientific stores in a MongoDb instance on the Enviratron intrastructure. """
 import csv
+from collections import namedtuple
 from bson.objectid import ObjectId
 import arrow
 import pymongo
+
+
+ChamberObservationTimepoint = namedtuple(
+    "ChamberObservationTimepoint",
+    [
+        "chamber",
+        "record_id",
+        "datetime",
+        "temperature_setpoint",
+        "temperature_actual",
+        "rh_setpoint",
+        "rh_actual",
+        "watering_setpoint",
+        "watering_actual",
+    ],
+)
 
 
 class EnviratronChamberHistoryParser:
@@ -98,6 +115,17 @@ class EnviratronChamberHistoryParser:
         ), "Did not find watering (PV_5) set point data"
         assert watering_actual is not None, "Did not find watering (PV_5) observed data"
 
+        def get_value_or_none(collection, index):
+            """ Simple helper to avoid IndexErrors when getting data from the lists.
+            This is necessary because the "obs_count" value from the chamberdata object is not always
+            correct. Alternatively, we could avoid the IndexErrors by simply using len() on the list.
+            """
+            try:
+                value = collection[index] / 1000.00
+                return value
+            except IndexError:
+                return None
+
         for i in range(0, obs_count, resolution_in_minutes):
             # Because the chamberdata.Timestamp only reflect the datetime for the first of the many (probably 60)
             # observations that the chamberdata entity wraps, we need to compare the synthetic timestamp for
@@ -111,17 +139,6 @@ class EnviratronChamberHistoryParser:
             # TODO: return empty/partial rows for missing/sparse data
 
             # Divide all values by 1000 to get a human-readable number
-
-            def get_value_or_none(collection, index):
-                ''' Simple helper to avoid IndexErrors when getting data from the lists.
-                This is necessary because the "obs_count" value from the chamberdata object is not always
-                correct. Alternatively, we could avoid the IndexErrors by simply using len() on the list.
-                '''
-                try:
-                    value = collection[index] / 1000.00
-                    return value
-                except IndexError:
-                    return None
 
             # Handle temperatures:
             temp_set_point = get_value_or_none(temps_set_points, i)
@@ -172,18 +189,25 @@ class EnviratronChamberHistoryParser:
         if start_datetime is not None and end_datetime is not None:
             query["Timestamp"] = {"$lte": end_datetime, "$gte": start_datetime}
 
-        timepoint_obs = self.collection.find(query).sort("Timestamp", pymongo.ASCENDING)
+        timepoint_observations = self.collection.find(query).sort(
+            "Timestamp", pymongo.ASCENDING
+        )
 
         environment_states = []
 
-        for d in timepoint_obs:
+        for timepoint_ob in timepoint_observations:
 
             obs = self._parse_mongo_chamberdata_record(
-                d, resolution_in_minutes=time_resolution_mins, end_datetime=end_datetime
+                timepoint_ob,
+                resolution_in_minutes=time_resolution_mins,
+                end_datetime=end_datetime,
             )
             # Add a chamber name element to each 'row' in the obs data:
-            obs = [[chamber_name] + ob for ob in obs]
-            environment_states += obs
+            obs_with_chamber_id = [[chamber_name] + ob for ob in obs]
+            obs_named_tuples = [
+                ChamberObservationTimepoint(*ob) for ob in obs_with_chamber_id
+            ]
+            environment_states += obs_named_tuples
 
         return environment_states
 
