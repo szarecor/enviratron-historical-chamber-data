@@ -1,0 +1,1349 @@
+[
+   {
+      "_id": {
+         "$oid": "afd6d30611afed4ebbabf305"
+      },
+      "CurrentDataId": {
+         "$oid": "1121c98edeff624faf9313a9"
+      },
+      "CurrentDataIndex": 2,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "06e71114e5238c4e80a9eb42"
+         },
+         "DataId": {
+            "$oid": "1121c98edeff624faf9313a9"
+         },
+         "Timestamp": {
+            "$date": 1518166560000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "20.0"
+            ],
+            [
+               1,
+               "  63"
+            ],
+            [
+               2,
+               " 457"
+            ],
+            [
+               3,
+               "  -0"
+            ],
+            [
+               4,
+               "   2"
+            ],
+            [
+               6,
+               "  24"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "20.0"
+            ],
+            [
+               1,
+               "  99"
+            ],
+            [
+               2,
+               "   0"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  40"
+            ],
+            [
+               6,
+               "   0"
+            ]
+         ],
+         "LightStatus": 0,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "f466492cf72e9f428d50b092"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095F6",
+      "Name": "Chamber 7 (0003AA0095F6)",
+      "LinkUrl": "http://10.25.215.216",
+      "Locked": true,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1549670400000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "03bf25c281f188498caf1200"
+         },
+         "ConfigDate": {
+            "$date": 1539769082681
+         },
+         "ChamberId": {
+            "$oid": "f466492cf72e9f428d50b092"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "3f96082fbdc23a42970bc26d"
+      },
+      "CurrentDataIndex": 190,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "a689c7df96560b4a8848f2c8"
+         },
+         "DataId": {
+            "$oid": "3f96082fbdc23a42970bc26d"
+         },
+         "Timestamp": {
+            "$date": 1547734560000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "36.9"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 399"
+            ],
+            [
+               3,
+               " 302"
+            ],
+            [
+               4,
+               "  52"
+            ],
+            [
+               6,
+               "  32"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "37.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "7d9fd5ffa6ecb547bd6ea6a9"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA009600",
+      "Name": "Chamber 8 (0003AA009600)",
+      "LinkUrl": "http://10.25.215.223",
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1549670400000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "6fbd6f53dee5164d90729bc9"
+         },
+         "ConfigDate": {
+            "$date": 1539784492221
+         },
+         "ChamberId": {
+            "$oid": "7d9fd5ffa6ecb547bd6ea6a9"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "b307b917b2b691469938f6a9"
+      },
+      "CurrentDataIndex": 139,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "afb8bafc950d8b48bdc3d93e"
+         },
+         "DataId": {
+            "$oid": "b307b917b2b691469938f6a9"
+         },
+         "Timestamp": {
+            "$date": 1547734200000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "33.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 315"
+            ],
+            [
+               3,
+               " 447"
+            ],
+            [
+               4,
+               "  51"
+            ],
+            [
+               6,
+               "  30"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "33.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "  75"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  24"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "b5a2986a019fd241b268738c"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095F4",
+      "Name": "Chamber 6 (0003AA0095F4)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "906bd391748dcc428fc0769e"
+         },
+         "ConfigDate": {
+            "$date": 1540297227956
+         },
+         "ChamberId": {
+            "$oid": "b5a2986a019fd241b268738c"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "5679f1c7ee4b1b4a8043e9d0"
+      },
+      "CurrentDataIndex": 159,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "ecb4bcb8bfca084f964d1a7d"
+         },
+         "DataId": {
+            "$oid": "5679f1c7ee4b1b4a8043e9d0"
+         },
+         "Timestamp": {
+            "$date": 1547734560000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "33.0"
+            ],
+            [
+               1,
+               "  61"
+            ],
+            [
+               2,
+               " 235"
+            ],
+            [
+               3,
+               " 432"
+            ],
+            [
+               4,
+               "  51"
+            ],
+            [
+               6,
+               "  30"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "33.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "16e39e954433a24793c3c06a"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095EC",
+      "Name": "Chamber 5 (0003AA0095EC)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "5ab31b089e163d41afaff886"
+         },
+         "ConfigDate": {
+            "$date": 1539766524441
+         },
+         "ChamberId": {
+            "$oid": "16e39e954433a24793c3c06a"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "2c91a70fd8ece0438c6168eb"
+      },
+      "CurrentDataIndex": 107,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "c0fdf6171b141b4db78f7dcf"
+         },
+         "DataId": {
+            "$oid": "2c91a70fd8ece0438c6168eb"
+         },
+         "Timestamp": {
+            "$date": 1547734320000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "35.0"
+            ],
+            [
+               1,
+               "  61"
+            ],
+            [
+               2,
+               " 327"
+            ],
+            [
+               3,
+               " 422"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  31"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "35.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "af6d1121f79c95499d04c00a"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095F5",
+      "Name": "Chamber 4 (0003AA0095F5)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "075ecee8b27e354290066d1b"
+         },
+         "ConfigDate": {
+            "$date": 1540387099348
+         },
+         "ChamberId": {
+            "$oid": "af6d1121f79c95499d04c00a"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "7d360471fa45794185c3bdf8"
+      },
+      "CurrentDataIndex": 228,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "5cb44b25d533ea4f8734a2d8"
+         },
+         "DataId": {
+            "$oid": "7d360471fa45794185c3bdf8"
+         },
+         "Timestamp": {
+            "$date": 1547734440000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "34.9"
+            ],
+            [
+               1,
+               "  61"
+            ],
+            [
+               2,
+               " 281"
+            ],
+            [
+               3,
+               " 142"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  31"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "35.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "6e25512f31079343ac1e04cc"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095F8",
+      "Name": "Chamber 3 (0003AA0095F8)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "b03614213089404489d79fa0"
+         },
+         "ConfigDate": {
+            "$date": 1539261450369
+         },
+         "ChamberId": {
+            "$oid": "6e25512f31079343ac1e04cc"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "354e10ed54b4e246a9b0db1e"
+      },
+      "CurrentDataIndex": 13,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "824150ff29ecd648b306223b"
+         },
+         "DataId": {
+            "$oid": "354e10ed54b4e246a9b0db1e"
+         },
+         "Timestamp": {
+            "$date": 1547734140000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "36.7"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 394"
+            ],
+            [
+               3,
+               " 379"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  32"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "37.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "bdafd6f326d8664a8d874aa0"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0089B0",
+      "Name": "Chamber 2 (0003AA0089B0)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "afb42f6fa9851c4287406f28"
+         },
+         "ConfigDate": {
+            "$date": 1540303585761
+         },
+         "ChamberId": {
+            "$oid": "bdafd6f326d8664a8d874aa0"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "92937bd8ac6ddb4c9c5f5824"
+      },
+      "CurrentDataIndex": 151,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "34f655744ef91c41b37d9786"
+         },
+         "DataId": {
+            "$oid": "92937bd8ac6ddb4c9c5f5824"
+         },
+         "Timestamp": {
+            "$date": 1547734740000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "31.0"
+            ],
+            [
+               1,
+               "  59"
+            ],
+            [
+               2,
+               " 281"
+            ],
+            [
+               3,
+               " 363"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  29"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "31.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   },
+   {
+      "_id": {
+         "$oid": "b8f681590cc4ac44ba21e2d3"
+      },
+      "CustomerId": "8947D74E",
+      "SerialNumber": "0003AA0095FA",
+      "Name": "Chamber 1 (0003AA0095FA)",
+      "LinkUrl": null,
+      "Locked": false,
+      "RecordingResolution": 0,
+      "ExpirationDate": {
+         "$date": 1558483200000
+      },
+      "CurrentConfig": {
+         "_id": {
+            "$oid": "c6214fa0a976c248883f16be"
+         },
+         "ConfigDate": {
+            "$date": 1539769981599
+         },
+         "ChamberId": {
+            "$oid": "b8f681590cc4ac44ba21e2d3"
+         },
+         "ConfigVersion": 1,
+         "Configuration": "Year,Month,Day,Hour,Minute,Second,Mode,Prog_Name,Prog_Step,Seq_Step,Seq_Iter,PV_1,SP_1,PV_2,SP_2,PV_3,SP_3,PV_4,SP_4,PV_5,SP_5,PV_6,SP_6,PV_7,SP_7,EO_1,EO_2,EO_3,EO_4,EO_5,EO_6,EO_7,EO_8,EO_9,EO_10,EO_11,EO_12,EO_13,EO_14,EO_15,EO_16,EO_17,EO_18,EO_19,EO_20,EO_21,EO_22,EO_23,EO_24,EO_25,EO_26,EO_27,EO_28,EO_29,EO_30,EO_31,EO_32,EO_33,EO_34,EO_35,EO_36,EO_37,EO_38,EO_39,EO_40,EO_41,EO_42,EO_43,EO_44,EO_45,EO_46,EO_47,Lim_2_PV,Defrost,DLI,DLI_Acc,Lim_1_Hi,Lim_1_Lo,Lim_2_Hi,Lim_2_Lo,Alm_1_Hi,Alm_1_Lo,Dev_Hi,Dev_Lo,Alm_2_Hi,Alm_2_Lo,ALm_3_Hi,Alm_3_Lo,Alm_4_Hi,Alm_4_Lo,Alm_5_Hi,Alm_5_Lo,Alm_6_Hi,Alm_6_Lo,Alm_7_Hi,Alm_7_Lo,Light_Life,Lim_1_Alarm,Lim_2_Alarm,Dev_Alarm,Alm_1_Alarm,Alm_2_Alarm,ALm_3_Alarm,Alm_4_Alarm,Alm_5_Alarm,Alm_6_Alarm,Alm_7_Alarm,Life_Alarm,Ch2A_Ena,Ch2B_Ena,Ch3A_Ena,Ch3B_Ena,Ch4A_Ena,Ch4B_Ena,Ch5A_Ena,Ch5B_Ena,Ch6A_Ena,Ch6B_Ena,Ch7A_Ena,Ch7B_Ena,Light1_Life,Light2_Life,Light3_Life,Light4_Life,Light5_Life,Light6_Life,Light7_Life,Light8_Life,Light9_Life,Light10_Life,Light11_Life,Light12_Life,Light13_Life,Light14_Life,Light15_Life,Light16_Life,Light17_Life,Light18_Life,Light19_Life,Light20_Life,Light21_Life,Light22_Life,Light23_Life,Light24_Life,Light25_Life,Light26_Life,Light27_Life,Light28_Life,Light29_Life,Light30_Life,Light31_Life,Light32_Life,Light33_Life,Light34_Life,Light35_Life,Light36_Life,Light37_Life,Light38_Life,Light39_Life,Light40_Life,Light41_Life,Light42_Life,Light43_Life,Light44_Life,Light45_Life,Light46_Life,Light47_Life",
+         "OutputTypes": "5,5,5,5,5,5,5,0,0,0,0,0,4,4,4,0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+         "InputTypes": "5,3,3,2,3,0,5",
+         "SlotTypes": "5,5,1,5",
+         "InputNames": "TEMP,RH  ,CO2 ,LS4 ,VWC5,RMC6,VTMP",
+         "InputUnits": "C  ,%RH,PPM,UML,%WC,UML,C  ",
+         "AlarmValues": "1,0,0,1,0,1,1,0,0,0,0",
+         "OutputLightTags": [
+            "EO_1",
+            "EO_2",
+            "EO_3",
+            "EO_4",
+            "EO_5",
+            "EO_6",
+            "EO_7"
+         ],
+         "OutputEventTags": [
+            "EO_13",
+            "EO_14",
+            "EO_15"
+         ],
+         "AlarmsTags": [
+            "Alm_1_Alarm",
+            "Lim_1_Alarm"
+         ],
+         "Inputs": [
+            {
+               "Tag": "PV_1",
+               "Name": "TEMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_2",
+               "Name": "RH",
+               "Units": "%RH",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_3",
+               "Name": "CO2",
+               "Units": "PPM",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_4",
+               "Name": "LS4",
+               "Units": "UML",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_5",
+               "Name": "VWC5",
+               "Units": "%WC",
+               "IsSetPointEnabled": true
+            },
+            {
+               "Tag": "PV_7",
+               "Name": "VTMP",
+               "Units": "C",
+               "IsSetPointEnabled": true
+            }
+         ]
+      },
+      "CurrentDataId": {
+         "$oid": "9fb10636e37f444bb0587aa4"
+      },
+      "CurrentDataIndex": 143,
+      "CurrentStatus": {
+         "_id": {
+            "$oid": "9d56ffa2b60cc34abaf9748b"
+         },
+         "DataId": {
+            "$oid": "9fb10636e37f444bb0587aa4"
+         },
+         "Timestamp": {
+            "$date": 1547734860000
+         },
+         "ProgramMode": "MAN ",
+         "DataValues": [
+            [
+               0,
+               "31.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 350"
+            ],
+            [
+               3,
+               " 514"
+            ],
+            [
+               4,
+               "  64"
+            ],
+            [
+               6,
+               "  29"
+            ]
+         ],
+         "SetPoints": [
+            [
+               0,
+               "31.0"
+            ],
+            [
+               1,
+               "  60"
+            ],
+            [
+               2,
+               " 400"
+            ],
+            [
+               3,
+               "   0"
+            ],
+            [
+               4,
+               "  50"
+            ],
+            [
+               6,
+               "  22"
+            ]
+         ],
+         "LightStatus": 2,
+         "AlarmStatus": false
+      }
+   }
+]
