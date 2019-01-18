@@ -5,7 +5,7 @@ from collections import namedtuple
 from bson.objectid import ObjectId
 import arrow
 import pymongo
-
+from bson.json_util import dumps
 
 ChamberObservationTimepoint = namedtuple(
     "ChamberObservationTimepoint",
@@ -28,15 +28,18 @@ class EnviratronChamberHistoryParser:
 
         self.mongo_db_addr = mongo_ip_addr
         self.mongo_db_port = 27017
-        self.db_name = "intelluscloud"
-        self.db = None
-        self.collection_name = "chamberdata"
-        self.collection = None
 
+        #self.db_conn = mongo_db_conn
+        self.db_name = "intelluscloud"
+        self.collection_name = "chamberdata"
         self.get_mongo_connection()
+        self.db = self.db_conn[self.db_name]
+        self.collection = self.db[self.collection_name]
+
 
     def get_mongo_connection(self):
         client = pymongo.MongoClient(self.mongo_db_addr, self.mongo_db_port)
+        self.db_conn = client
         self.db = client[self.db_name]
 
         if self.collection_name is not None:
@@ -54,6 +57,7 @@ class EnviratronChamberHistoryParser:
 
         # Need to use a different collection:
         _chamber_collection = self.db.chamber
+
         chamber = _chamber_collection.find_one(
             {"Name": {"$regex": f"Chamber {chamber_int}"}}
         )

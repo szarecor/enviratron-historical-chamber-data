@@ -10,10 +10,28 @@ to a MongoDB instance. This project extracts and reformats that logged data.
 
 To run the example code (`example.py`), you will first need to set the ip address of the MongoDb server for the terminal session: `export ENVIRATRON_MONGODB_IP=xxx.xxx.xxx.xxx`
 
-Then, you can run `python example.py` or any of the other examples. See the definition of the `main()` function in `example.py` for available parameters.
+Then, you can run `python example.py`. See the definition of the `main()` function in `example.py` or the usage example below for available parameters.
 
 
 Sample output of the `EnviratronChamberHistoryParser.write_csv()` method is available in the `./sample_output/` directory.
+
+
+The `get_chamber_history()` method returns a list of `ChamberObservationTimepoint` namedtuples where each namedtuple represents a single timepoint and the data for that timepoint.
+The The `ChamberObservationTimepoint` namedtuples have the following form:
+
+* __chamber__ string representation of chamber ID
+* __record_id__ string representation of the ID of the source chamberdata record in the DB
+* __datetime__ string representation of the datetime
+* __temperature_setpoint__ float representation of the specified temperature in Celcius
+* __temperature_actual__ float representation of the observed temperature in Celcius
+* __rh_setpoint__ float representation of the specified humidty as a percentage
+* __rh_actual__ float representation of the observed humidity as a percentage
+* __watering_setpoint__ float representation of the specified soil moisture as a percentage
+* __watering_actual__ float representation of the observed soil moisture as a percentage
+
+
+
+
 
 Basic usage example:
 ```python
@@ -35,6 +53,18 @@ time_resolution = 30
 data = history.get_chamber_history(chamber_id, start_datetime, end_datetime, time_resolution)
 
 for row in data:
+    # row is a ChamberObservationTimepoint namedtuple like this:
+    # ChamberObservationTimepoint(
+    #   chamber='Chamber 8 (0003AA009600)', 
+    #   record_id='5b2675faa2b3c744addba6b5', 
+    #   datetime='2019-01-01 11:04', 
+    #   temperature_setpoint=32.0, 
+    #   temperature_actual=32.0, 
+    #   rh_setpoint=60.0, 
+    #   rh_actual=58.0, 
+    #   watering_setpoint=50.0, 
+    #   watering_actual=51.0
+    # )
     print(row)
     
 # Or if you want to produce CSV output:

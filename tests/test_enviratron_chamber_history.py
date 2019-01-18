@@ -5,17 +5,59 @@ import sys
 from io import StringIO
 import arrow
 import csv
+import mongomock
+from unittest.mock import patch
+from bson.json_util import loads
 import pytest
-
 sys.path.append(os.path.abspath(os.getcwd()))
 from enviratron_chamber_history import EnviratronChamberHistoryParser
 
 
+
+'''
+def get_mocked_mongo_conn(cls, *args, **kwargs):
+    cls.db_conn = mongomock.MongoClient()
+    return cls.db_conn
+
+@patch.object(EnviratronChamberHistoryParser, 'get_mongo_connection', get_mocked_mongo_conn)
+def get_history_obj():
+    history = EnviratronChamberHistoryParser()
+    return history
+'''
+
+
+
 @pytest.fixture(scope="module")
 def history():
-    """ Fixture providing a EnviratronChamberHistoryParser instance """
-    mongo_ip_address = os.getenv("ENVIRATRON_MONGODB_IP")
-    history = EnviratronChamberHistoryParser(mongo_ip_address)
+    '''' Mocks MongoDB and populates the mock instance '''
+
+    def get_mocked_mongo_conn(cls, *args, **kwargs):
+        cls.db_conn = mongomock.MongoClient()
+        return cls.db_conn
+
+    # No need to use @patch:
+    EnviratronChamberHistoryParser.get_mongo_connection = get_mocked_mongo_conn
+
+
+    #@patch.object(EnviratronChamberHistoryParser, 'get_mongo_connection', get_mocked_mongo_conn)
+    history = EnviratronChamberHistoryParser() #get_history_obj() #EnviratronChamberHistoryParser()
+    conn = history.db_conn
+    collection = history.db.chamber
+
+    # Populate the chamber collection:
+    with open('./tests/mongodb_test_data/chamber.json') as chamber_handle:
+        chambers = loads(chamber_handle.read())
+        for chamber in chambers:
+            collection.insert_one(chamber)
+
+    # And now populate the chamberdata collection:
+    collection = conn.intelluscloud.chamberdata
+
+    with open('./tests/mongodb_test_data/chamberdata.json') as chamberdata_handle:
+        chamberdata = loads(chamberdata_handle.read())
+        for data in chamberdata:
+            collection.insert_one(data)
+
     return history
 
 
@@ -30,10 +72,12 @@ def test_history_length_not_zero(history):
     start_datetime = datetime(2019, 1, 1, 0, 0, 0, 0, tzinfo=tzoffset("UTC+0", 0))
     end_datetime = datetime(2019, 1, 1, 23, 59, 0, 0, tzinfo=tzoffset("UTC+0", 0))
     time_resolution = 30
-    chamber_id = 5
+    chamber_id = 2
+
     data = history.get_chamber_history(
         chamber_id, start_datetime, end_datetime, time_resolution
     )
+
     assert len(data) != 0, "data should NOT be zero-length"
 
 
@@ -120,18 +164,21 @@ def test_csv_header(history):
 
 
 def test_csv_line_count(history):
-    csv_obj = get_csv_obj(history)
+    csv_obj = get_csv_obj(history, dict_reader=True)
+
     line_count = len([l for l in csv_obj])
     assert (
-        line_count == 25
+        line_count == 24
     ), "There should be 24 data rows (plus a header row) in the CSV for 60 min resolution over twenty-four hours"
 
 
 def test_csv_datetime_range(history):
     csv_obj = get_csv_obj(history)
 
-    end_datetime = arrow.now().shift(days=-1)
-    start_datetime = end_datetime.shift(days=-1)
+    #end_datetime = arrow.now().shift(days=-1)
+    #start_datetime = end_datetime.shift(days=-1)
+    start_datetime = datetime(2019, 1, 2, 0, 0, tzinfo=tzoffset("UTC+0", 0))
+    end_datetime = datetime(2019, 1, 3, 0, 0, tzinfo=tzoffset("UTC+0", 0))
 
     # Skip the header row:
     csv_obj.__next__()
@@ -143,44 +190,20 @@ def test_csv_datetime_range(history):
         ), f"The following statement should be True: {start_datetime} < {row_datetime} < {end_datetime}"
 
 
-def get_csv_obj(history):
-    """ Returns a csv reader instance of chamberdata data
-    This is not a fixture b/c we want a new instance for each usage.
-    """
-
-    # Don't use now() for the end_datetime if you want predictable counts of timepoints,
-    # b/c now() will contain the most recent chamberdata instance which is most likely incomplete due to the way
-    # Percival creates and populates the instances in the DB. The instance is created in the DB with a single time point
-    # and then a timepoint is added every minute until the chamberdata instance is complete (60 timepoints) and a new
-    # chamberdata instance is started.
-    end_datetime = arrow.now().shift(days=-1)
-    start_datetime = end_datetime.shift(days=-1)
-
-    # Use StringIO for writing instead of an actual file:
-    write_handle = StringIO()
-
-    history.write_csv(
-        write_handle=write_handle,
-        chamber_int=1,
-        start_datetime=start_datetime.datetime,
-        end_datetime=end_datetime.datetime,
-        time_resolution_mins=60,
-    )
-
-    write_handle.seek(0)
-    csv_doc = csv.reader(write_handle)
-    return csv_doc
-
-
 def test_inaccurate_count_field(history, sample_chamberdata_record):
     """ The chamberdata instances from the DB have been found to have "Count" fields that don't accurately reflect the
     number of datapoints contained in the various child arrays.
 
     We test that case here by creating a missing data scenario and feeding that data to the parsing method. """
     bad_record = sample_chamberdata_record
-    bad_record["Inputs"]["PV_1"]["Values"] = sample_chamberdata_record["Inputs"][
-        "PV_1"
-    ]["Values"][:40]
+    bad_record["Inputs"]["PV_1"]["Values"] = (
+        sample_chamberdata_record.get("Inputs").get("PV_1").get("Values")[:40]
+    )
+
+    bad_record["Inputs"]["PV_1"]["SetPoints"] = (
+        sample_chamberdata_record.get("Inputs").get("PV_1").get("SetPoints")[:40]
+    )
+
     partial_data = history._parse_mongo_chamberdata_record(bad_record)
 
     # Test that known source data is preserved:
@@ -191,9 +214,45 @@ def test_inaccurate_count_field(history, sample_chamberdata_record):
 
     # Test that missing source data -> None in the output data
     for row in partial_data[40:]:
-        assert (
-            row[3] is None
-        ), "There should be empty output data when input data is missing"
+
+        assert row[3] is None, "Expected empty output data"
+        assert row[2] is None, "Expected empty output data"
+
+        # This data should not be empty:
+        assert row[4] is not None
+        assert row[5] is not None
+
+def get_csv_obj(history, dict_reader=False):
+    """ Returns a csv reader instance of chamberdata data
+    This is not a fixture b/c we want a new instance for each usage.
+    """
+
+    # Don't use now() for the end_datetime if you want predictable counts of timepoints,
+    # b/c now() will contain the most recent chamberdata instance which is most likely incomplete due to the way
+    # Percival creates and populates the instances in the DB. The instance is created in the DB with a single time point
+    # and then a timepoint is added every minute until the chamberdata instance is complete (60 timepoints) and a new
+    # chamberdata instance is started.
+
+    start_datetime = datetime(2019, 1, 2, 0, 0, tzinfo=tzoffset("UTC+0", 0))
+    end_datetime = datetime(2019, 1, 3, 0, 0, tzinfo=tzoffset("UTC+0", 0))
+
+    # Use StringIO for writing instead of an actual file:
+    write_handle = StringIO()
+
+    history.write_csv(
+        write_handle=write_handle,
+        chamber_int=2,
+        start_datetime=start_datetime,
+        end_datetime=end_datetime,
+        time_resolution_mins=60,
+    )
+
+    write_handle.seek(0)
+    if dict_reader:
+        csv_doc = csv.DictReader(write_handle)
+    else:
+        csv_doc = csv.reader(write_handle)
+    return csv_doc
 
 
 @pytest.fixture(scope="module")

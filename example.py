@@ -1,6 +1,7 @@
 from datetime import datetime
 from dateutil.tz import tzoffset
 from enviratron_chamber_history import EnviratronChamberHistoryParser
+import pymongo
 
 
 def main():
@@ -15,6 +16,9 @@ def main():
 
         sys.exit(-1)
 
+
+    #with pymongo.MongoClient(mongo_ip_address) as mongo_conn:
+
     history = EnviratronChamberHistoryParser(mongo_ip_address)
     assert history.db is not None, "No MongoDB connection established"
 
@@ -25,7 +29,6 @@ def main():
 
     start_datetime_str = start_datetime.strftime("%Y%m%dT%H:%M")
     end_datetime_str = end_datetime.strftime("%Y%m%dT%H:%M")
-
     time_resolution = 30
 
     for i in range(1, 9):
