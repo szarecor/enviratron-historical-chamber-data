@@ -17,7 +17,7 @@ Sample output of the `EnviratronChamberHistoryParser.write_csv()` method is avai
 
 
 The `get_chamber_history()` method returns a list of `ChamberObservationTimepoint` namedtuples where each namedtuple represents a single timepoint and the data for that timepoint.
-The The `ChamberObservationTimepoint` namedtuples have the following form:
+The `ChamberObservationTimepoint` namedtuples have the following form:
 
 * __chamber__ string representation of chamber ID
 * __record_id__ string representation of the ID of the source chamberdata record in the DB
