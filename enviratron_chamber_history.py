@@ -13,6 +13,7 @@ ChamberObservationTimepoint = namedtuple(
         "chamber",
         "record_id",
         "datetime",
+        "lighting",
         "temperature_setpoint",
         "temperature_actual",
         "rh_setpoint",
@@ -87,6 +88,15 @@ class EnviratronChamberHistoryParser:
         obs_count = int(d.get("Count"))
         tstamp = arrow.get(d.get("Timestamp"))
 
+        # Lighting:
+        lighting_data = d.get("Lights")
+        __lighting = []
+
+        for light_id in range(1, 8):
+            __lighting.append(lighting_data.get(f"EO_{light_id}").get("Values"))
+
+        lighting_actuals = [(sum(d)/len(d)) for d in zip(*__lighting)]
+
         # Temperature:
         temp_data = d.get("Inputs").get("PV_1")
         assert temp_data is not None, "Did not find temperature (PV_1) data"
@@ -153,18 +163,20 @@ class EnviratronChamberHistoryParser:
             # Soil moisture/watering:
             sm_set_point = get_value_or_none(watering_set_points, i)
             sm_actual = get_value_or_none(watering_actual, i)
+            lighting_actual = get_value_or_none(lighting_actuals, i)
 
             tstamp_str = tstamp.format("YYYY-MM-DD HH:mm")
             return_data.append(
                 [
                     str(d.get("_id")),
                     tstamp_str,
+                    lighting_actual,
                     temp_set_point,
                     temp_actual,
                     rh_set_point,
                     rh_actual,
                     sm_set_point,
-                    sm_actual,
+                    sm_actual
                 ]
             )
             tstamp = tstamp.shift(minutes=resolution_in_minutes)
@@ -233,6 +245,7 @@ class EnviratronChamberHistoryParser:
                 "chamber",
                 "record ID",
                 "datetime",
+                "ligting actual",
                 "temperature setpoint",
                 "temperature actual",
                 "rh setpoint",
@@ -251,3 +264,20 @@ class EnviratronChamberHistoryParser:
 
         for row in obs_rows:
             writer.writerow(row)
+
+
+if __name__ == '__main__':
+    import os
+
+    history = EnviratronChamberHistoryParser(os.getenv("ENVIRATRON_MONGODB_IP"))
+
+    now = arrow.now().shift(days=-60)
+    print(now)
+    later = now.shift(hours=-24)
+    print(later, now)
+
+    history_data = history.get_chamber_history(1, later.datetime, now.datetime, time_resolution_mins=15)
+
+    for d in history_data:
+        print(d.lighting)
+        print("=" * 40)
